@@ -9,16 +9,109 @@
   --cor-btn-blue: #0c6dfb;
   --cor-text-primary: #000000;
   --cor-text-secundary: #d1d6db;
+  --cor-paragrafos: gray;
+  --cor-fund-img: #f1f2f3;
+  --cor-fundo-form: #fff;
+  --cor-hover: #b7dbfd;
 }
 html {
-  width: 100vw;
-  height: 100dvh;
+  overflow-y: scroll;
+  font-size: 62.5%;
 }
 body {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  font-family: "Arial", Sans-Serif;
   background: linear-gradient(140deg, var(--cor-fundo1), var(--cor-fundo2));
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.6rem;
+}
+.hero-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--cor-fundo-form);
+  margin: 1rem;
+  padding: 3rem 2rem;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 0.5rem;
+}
+.form-login {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem
+}
+.form-login label, input {
+  display: inline-block;
+  width: 100%;
+}
+.form-login h1 {
+  font-size: 3rem;
+}
+.form-login button {
+  width: 100%;
+  padding: 1rem;
+  background: var(--cor-btn-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--cor-fundo-form);
+  font-size: 2rem;
+  border-radius: 0.5rem;
+}
+.form-login label {
+  font-size: 1.7rem;
+  color: var(--cor-text-primary);
+}
+.hero-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.hero-title img {
+  width: 60px;
+  height: 60px;
+}
+.hero-title p {
+  color: var(--cor-paragrafos);
+}
+.img-input {
+  display: flex;
+  padding: 0;
+  margin: 1rem 0;
+  border: 0.2rem solid var(--cor-text-secundary);
+  border-radius: 0.5rem;
+}
+.img-input img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  object-position: center;
+  background: var(--cor-fund-img);
+  padding: 1rem;
+}
+.img-input input {
+  padding: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-size: 1.8rem;
+}
+.img-input:hover {
+  outline: 0.3rem solid var(--cor-hover);
 }
