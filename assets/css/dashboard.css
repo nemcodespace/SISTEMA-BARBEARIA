@@ -1,0 +1,132 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  /* CSS HEX */
+--#fef08e: #fef08e;
+--#fec10e: #fec10e;
+--#0c7ef6: #0c7ef6;
+--#91082a: #91082a;
+--cor-green: #1a8754;
+--cor-fundo: #ebebec;
+--cor-fundo-header: #25313f;
+--#28c9ef: #074756;
+--#db3848: #db3848;
+
+/* SCSS HEX */
+$#fef08e: #fef08e;
+$#fec10e: #fec10e;
+$#0c7ef6: #0c7ef6;
+$#91082a: #91082a;
+$#1a8754: #1a8754;
+$#ebebec: #ebebec;
+$#25313f: #25313f;
+$#28c9ef: #28c9ef;
+$#db3848: #db3848;
+
+/* SCSS RGB */
+$#fef08e: rgba(254,240,142,1);
+$#fec10e: rgba(254,193,14,1);
+--cor-mark-hover-menu: #01496d;
+$#91082a: rgba(145,8,42,1);
+$#1a8754: rgba(26,135,84,1);
+$#ebebec: rgba(235,235,236,1);
+$#25313f: rgba(37,49,63,1);
+$#28c9ef: rgba(40,201,239,1);
+$#db3848: rgba(219,56,72,1);
+
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+  font-family: "Arial", Sans-Serif;
+  background: var(--cor-fundo);
+}
+/*container*/
+.container {
+  display: flex;
+}
+
+/*header*/
+.header {
+  background: var(--cor-fundo-header);
+  color: var(--cor-fundo);
+  width: 300px;
+  height: 100vh;
+  display: block;
+}
+.header-left {
+  text-align: left;
+}
+.logo {
+  margin-bottom: 1em;
+  padding: 1rem;
+}
+.logo h1 {
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.logo p {
+  text-align: center;
+}
+/*menu-left*/
+#mark {
+  background: var(--cor-mark-hover-menu);
+  border-left: 2px solid var(--cor-green);
+}
+.menu-left {
+  width: 100%;
+}
+.menu-left ul, li{
+  width: 100%;
+  list-style: none;
+}
+.menu-left a {
+  color: var(--cor-fundo);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+  text-decoration: none;
+}
+.menu-left img {
+  width: 24px;
+  height: 24px;
+}
+.menu-left a:hover {
+  background: var(--cor-mark-hover-menu);
+  border-left: 2px solid var(--cor-green);
+}
+
+
+/*main*/
+.main {
+  flex: 1;
+  position: relative;
+}
+
+/*footer*/
+.footer {
+  width: 100%;
+  background: var(--cor-fundo-header);
+  position: fixed;
+  bottom: 0;
+  color: var(--cor-fundo);
+  padding: 1em 1rem;
+  text-align: center;
+}
+
+
+/* media queries */
+@media (max-width: 900px){
+  .header {
+    display: none;
+  }
+}
