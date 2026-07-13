@@ -23,7 +23,7 @@ $#91082a: #91082a;
 $#1a8754: #1a8754;
 $#ebebec: #ebebec;
 $#25313f: #25313f;
-$#28c9ef: #28c9ef;
+--cor-azul-claro: #28c9ef;
 $#db3848: #db3848;
 
 /* SCSS RGB */
@@ -59,6 +59,7 @@ body {
   min-width: 250px;
   height: 100vh;
   display: block;
+  overflow-y: scroll;
 }
 .header-left {
   text-align: left;
@@ -78,10 +79,24 @@ body {
   text-align: left;
   margin-left: 30px;
 }
+.header-left h4 {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
 /*menu-left*/
 #mark {
   background: var(--cor-mark-hover-menu);
   border-left: 2px solid var(--cor-green);
+}
+#menu.ativo {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 .menu-left {
   width: 100%;
@@ -119,14 +134,28 @@ body {
   flex: 1;
   position: relative;
 }
+/*nav topo do main*/
 .nav-top {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  border-bottom: 0.2rem solid var(--cor-fundo-header);
+  padding: 0 0 1rem 0;
 }
 .nav-top h2 {
   display: flex;
   align-items: center;
   gap: 0.5rem
+}
+#botao {
+  display: none;
+}
+#botao img {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  margin: 0;
+  padding: 0;
 }
 
 /*footer*/
@@ -134,7 +163,6 @@ body {
   width: 100%;
   background: var(--cor-fundo-header);
   position: fixed;
-  left: 0;
   bottom: 0;
   color: var(--cor-fundo);
   padding: 1em 1rem;
@@ -147,7 +175,21 @@ body {
 
 /* media queries */
 @media (max-width: 900px){
+  /*header*/
   .header {
-    display: block;
+    display: none;
   }
+  /*botao menu mobile*/
+  #botao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.2rem;
+    cursor: pointer;
+    outline: 0.2rem solid var(--cor-mark-hover-menu);
+    width: 45px;
+    height: 45px;
+    border-radius: 0.5rem;
+  }
+  /*main*/
 }
