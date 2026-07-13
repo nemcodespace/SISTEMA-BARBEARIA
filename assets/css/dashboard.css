@@ -55,7 +55,8 @@ body {
 .header {
   background: var(--cor-fundo-header);
   color: var(--cor-fundo);
-  width: 300px;
+  max-width: 250px;
+  min-width: 250px;
   height: 100vh;
   display: block;
 }
@@ -70,10 +71,12 @@ body {
   font-size: 1.3em;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: flex-start;
+  gap: 0.5rem;
 }
 .logo p {
-  text-align: center;
+  text-align: left;
+  margin-left: 30px;
 }
 /*menu-left*/
 #mark {
@@ -103,13 +106,27 @@ body {
 .menu-left a:hover {
   background: var(--cor-mark-hover-menu);
   border-left: 2px solid var(--cor-green);
+  transition: background 0.5s ease-in-out;
 }
 
 
 /*main*/
+.main-padding {
+  width: 100%;
+  padding: 1em 1rem;
+}
 .main {
   flex: 1;
   position: relative;
+}
+.nav-top {
+  display: flex;
+  align-items: center;
+}
+.nav-top h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem
 }
 
 /*footer*/
@@ -117,16 +134,20 @@ body {
   width: 100%;
   background: var(--cor-fundo-header);
   position: fixed;
+  left: 0;
   bottom: 0;
   color: var(--cor-fundo);
   padding: 1em 1rem;
   text-align: center;
+}
+.footer p {
+  font-size: 1.4rem;
 }
 
 
 /* media queries */
 @media (max-width: 900px){
   .header {
-    display: none;
+    display: block;
   }
 }
