@@ -1,12 +1,8 @@
 <?php include_once("includes/header.php")?>
     <main class="main">
       <section class="main-padding">
-        <article class="nav-top">
-          <h2><img src="assets/icons/dash2.svg" alt="dashboard">Dashboard</h2>
-          <div id="botao">
-            <img src="assets/icons/menu.svg" alt="menu">
-          </div>
-        </article>
+        <!--NAV-TOPO-->
+        <?php include_once("includes/nav-topo.php")?>
         <!--INICIO CARDS-->
         <article class="cards">
           <div class="card-azul">
@@ -29,16 +25,30 @@
             <h3>10</h3>
             <h4>Próximos agen...</h4>
           </div>
-          <div>
-            6
+          <div class="card-cinza">
+            <h3>R$: 100,00</h3>
+            <h4>Receita do mês</h4>
           </div>
         </article>
         <!--FIM CARDS-->
+        <!--INICIO CARD2-->
+        <article class="card2">
+          <div class="card2-hero1">
+            <div>
+              titulo
+            </div>
+            enne
+          </div>
+          <div class="card2-hero2">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde assumenda reprehenderit necessitatibus sed inventore porro ipsa repellendus officia. Blanditiis, consectetur modi, iure fuga ullam sed nesciunt at inventore unde repellat accusantium animi nam voluptate mollitia voluptatum recusandae delectus suscipit eos!
+          </div>
+        </article>
+        <!--FIM CARD2-->
+        
       </section>
-      <!-- footer -->
-      <?php include_once("includes/footer.php")?>
+    <!-- footer -->
+    <?php include_once("includes/footer.php")?>
     </main>
   </div>
-  <script src="assets/js/script.js"></script>
 </body>
 </html>

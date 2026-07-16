@@ -42,7 +42,7 @@ include_once("config/conexao.php");
               </a>
             </li>
             <li>
-              <a href=""><img src="assets/icons/clientes.svg" alt="clientes">
+              <a href="clientes.php"><img src="assets/icons/clientes.svg" alt="clientes">
                 Clientes
               </a>
             </li>
