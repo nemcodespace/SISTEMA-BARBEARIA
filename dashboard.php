@@ -3,6 +3,11 @@
       <section class="main-padding">
         <!--NAV-TOPO-->
         <?php include_once("includes/nav-topo.php")?>
+        <?php
+          if($paginaAtual == 'dashboard.php'):?>
+            <a href="dashboard.php" class="paginaIndica">dashboard</a>
+          <?php endif 
+        ?>
         <!--INICIO CARDS-->
         <article class="cards">
           <div class="card-azul">

@@ -5,6 +5,7 @@ if(!isset($_SESSION["admin_id"])){
   exit;
 }*/
 include_once("config/conexao.php");
+include_once("config/marcador-pagina.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -27,22 +28,22 @@ include_once("config/conexao.php");
         <nav class="menu-left">
           <ul>
             <li>
-              <a href="dashboard.php" id="mark"><img src="assets/icons/dash-speed.svg" alt="dashboard">
+              <a href="dashboard.php" class="<?= $paginaAtual == 'dashboard.php' ? 'mark' : '' ?>"><img src="assets/icons/dash-speed.svg" alt="dashboard">
                 Dashboard
               </a>
             </li>
             <li>
-              <a href=""><img src="assets/icons/add.svg" alt="add">
+              <a href="novoAgendamento.php" class="<?= $paginaAtual == 'novoAgendamento.php' ? 'mark' : '' ?>"><img src="assets/icons/add.svg" alt="add">
                 Novo agendamento
               </a>
             </li>
             <li>
-              <a href=""><img src="assets/icons/agendados.svg" alt="agendados">
+              <a href="agendados.php" class="<?= $paginaAtual == 'agendados.php' ? 'mark' : '' ?>"><img src="assets/icons/agendados.svg" alt="agendados">
                 agendamentos
               </a>
             </li>
             <li>
-              <a href="clientes.php"><img src="assets/icons/clientes.svg" alt="clientes">
+              <a href="clientes.php" class="<?= $paginaAtual == 'clientes.php' ? 'mark' : '' ?>"><img src="assets/icons/clientes.svg" alt="clientes">
                 Clientes
               </a>
             </li>

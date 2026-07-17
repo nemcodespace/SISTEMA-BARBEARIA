@@ -90,9 +90,17 @@ body {
   margin: 0.5rem 0;
 }
 /*menu-left*/
-#mark {
+.mark {
   background: var(--cor-mark-hover-menu);
   border-left: 2px solid var(--cor-green);
+}
+.paginaIndica, .span {
+  display: inline-block;
+  margin: 1rem 0;
+  text-decoration: none;
+  font-style: italic;
+  color: var(--cor-cinza);
+  font-weight: bold;
 }
 #menu.ativo {
   display: block;
