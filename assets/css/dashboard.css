@@ -5,6 +5,7 @@
 }
 :root {
 /* CSS HEX */
+--cor-text: #000000;
 --cor-amarelo-claro: #fef08e;
 --cor-cinza: #25313f;
 --cor-cinza-claro: #DCDCDC;
@@ -29,6 +30,7 @@ body {
   font-family: "Arial", Sans-Serif;
   background: var(--cor-fundo);
   min-height: 100svh;
+  color: var(--cor-text);
 }
 /*container*/
 .container {
@@ -276,16 +278,19 @@ body {
   padding: 2rem 1rem;
   border-radius: 0 0 0.5rem 0.5rem;
 }
-.card2-hero2 button{
+.card2-hero2 a{
   background: var(--cor-fundo);
   padding: 0.5rem 1rem;
   border: 0.2rem solid var(--cor-azul-escuro);
+  text-decoration: none;
+  color: var(--cor-text);
   outline: none;
   border-radius: 0.5rem;
   cursor: pointer;
   text-transform: uppercase;
+  font-weight: 400;
 }
-.card2-hero2 button:hover {
+.card2-hero2 a:hover {
   background: var(--cor-azul-escuro);
   color: var(--cor-fundo);
 }

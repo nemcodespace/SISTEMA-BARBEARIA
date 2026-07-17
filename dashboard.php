@@ -48,7 +48,7 @@
           </div>
           <div class="card2-hero2">
             <div class="card2-hero1-titulo">
-              <h3><img src="assets/icons/dia.svg" alt="dia">Próximos agendamentos</h3><button>Ver todos</button>
+              <h3><img src="assets/icons/dia.svg" alt="dia">Próximos agendamentos</h3><a href="">Ver todos</a>
             </div>
             <div class="card-agendamentos">
               agendamentos

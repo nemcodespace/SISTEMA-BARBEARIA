@@ -12,10 +12,10 @@ include_once("config/conexao.php");
             <a href="dashboard.php" class="paginaIndica">dashboard/</a><span class="span">Clientes</span>
         <?php endif ?>
         <!--FIM MARCADOR DE PAGINA-->
-        
-        
-        <!-- PAGINA EM CONSTRUCAO -->
-        <h2>PÁGINA EM CONSTRUÇÃO...</h2>
+  </section>
+  <section>
+    <!-- PAGINA EM CONSTRUCAO -->
+    <h2>PÁGINA EM CONSTRUÇÃO...</h2>
   </section>
   <?php include_once("includes/footer.php") ?>
 </main>
