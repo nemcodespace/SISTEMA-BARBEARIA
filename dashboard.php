@@ -39,13 +39,20 @@
         <!--INICIO CARD2-->
         <article class="card2">
           <div class="card2-hero1">
-            <div>
-              titulo
+            <div class="card2-hero1-titulo">
+              <h3><img src="assets/icons/dia.svg" alt="dia">Agendamentos de hoje</h3><span>3</span>
             </div>
-            enne
+            <div class="card-agendamentos">
+              agendamentos
+            </div>
           </div>
           <div class="card2-hero2">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde assumenda reprehenderit necessitatibus sed inventore porro ipsa repellendus officia. Blanditiis, consectetur modi, iure fuga ullam sed nesciunt at inventore unde repellat accusantium animi nam voluptate mollitia voluptatum recusandae delectus suscipit eos!
+            <div class="card2-hero1-titulo">
+              <h3><img src="assets/icons/dia.svg" alt="dia">Próximos agendamentos</h3><button>Ver todos</button>
+            </div>
+            <div class="card-agendamentos">
+              agendamentos
+            </div>
           </div>
         </article>
         <!--FIM CARD2-->

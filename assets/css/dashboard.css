@@ -4,45 +4,28 @@
   box-sizing: border-box;
 }
 :root {
-  /* CSS HEX */
---#fef08e: #fef08e;
+/* CSS HEX */
+--cor-amarelo-claro: #fef08e;
+--cor-cinza: #25313f;
+--cor-cinza-claro: #DCDCDC;
+--cor-cinza-escuro: #A9A9A9;
 --cor-amarelo: #c79502;
+--cor-azul-claro: #28c9ef;
 --cor-azul-escuro: #0c7ef6;
 --cor-vermelho: #91082a;
 --cor-green: #1a8754;
 --cor-fundo: #ebebec;
 --cor-fundo-header: #25313f;
---#28c9ef: #074756;
---#db3848: #db3848;
-
-/* SCSS HEX */
-$#fef08e: #fef08e;
-$#fec10e: #fec10e;
-$#0c7ef6: #0c7ef6;
-$#91082a: #91082a;
-$#1a8754: #1a8754;
-$#ebebec: #ebebec;
---cor-cinza: #25313f;
---cor-azul-claro: #28c9ef;
-$#db3848: #db3848;
-
-/* SCSS RGB */
-$#fef08e: rgba(254,240,142,1);
-$#fec10e: rgba(254,193,14,1);
 --cor-mark-hover-menu: #01496d;
-$#91082a: rgba(145,8,42,1);
-$#1a8754: rgba(26,135,84,1);
-$#ebebec: rgba(235,235,236,1);
-$#25313f: rgba(37,49,63,1);
-$#28c9ef: rgba(40,201,239,1);
-$#db3848: rgba(219,56,72,1);
-
+--cor-vermelho-claro: #db3848;
 }
+
 html {
   font-size: 62.5%;
 }
 body {
   font-size: 1.6rem;
+  font-weight: 400;
   font-family: "Arial", Sans-Serif;
   background: var(--cor-fundo);
   min-height: 100svh;
@@ -177,6 +160,10 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1em;
 }
+.cards h4 {
+  font-weight: 400;
+  text-transform: uppercase;
+}
 .card-azul {
   background: var(--cor-azul-escuro);
   border-radius: 0.5rem;
@@ -251,20 +238,56 @@ body {
 }
 /* CARD2 */
 .card2 {
-  background: red;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   border-radius: 0.5rem 0.5rem;
 }
-.card2-hero1 {
-  background: blue;
-  padding: 1rem;
+.card2-hero1, .card2-hero2 {
+  margin: 0;
+  padding: 0;
   border-radius: 0.5rem 0.5rem;
 }
-.card2-hero2 {
-  background: yellow;
+.card2-hero1-titulo {
+  background: var(--cor-cinza-claro);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 1rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  border: 0.1rem solid var(--cor-cinza-escuro);
+}
+.card2-hero1-titulo h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.card2-hero1-titulo span {
+  background: var(--cor-azul-escuro);
+  color: var(--cor-fundo);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.card-agendamentos {
+  background: transparent;
+  border: 0.1rem solid var(--cor-cinza-escuro);
+  padding: 2rem 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+.card2-hero2 button{
+  background: var(--cor-fundo);
+  padding: 0.5rem 1rem;
+  border: 0.2rem solid var(--cor-azul-escuro);
+  outline: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.card2-hero2 button:hover {
+  background: var(--cor-azul-escuro);
+  color: var(--cor-fundo);
 }
 /*footer*/
 .footer {
