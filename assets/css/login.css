@@ -13,6 +13,7 @@
   --cor-fund-img: #f1f2f3;
   --cor-fundo-form: #fff;
   --cor-hover: #b7dbfd;
+  --cor-erro: red;
 }
 html {
   overflow-y: scroll;
@@ -28,6 +29,12 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.6rem;
+}
+/* MENSAGEN DE ERRO DE LOGIN*/
+.erro {
+  padding: 1rem 0;
+  color: var(--cor-erro);
+  font-style: italic;
 }
 .hero-form {
   display: flex;

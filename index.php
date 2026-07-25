@@ -26,6 +26,11 @@
           <img src="assets/icons/lock.svg" alt="senha">
           <input type="password" name="senha" placeholder="****">
         </div>
+        <?php if(isset($_GET["erro"]) == 1):?>
+          <div class="erro">
+              <p>Erro! Usuário ou senha incorretos</p>
+            </div>
+        <?php endif ?>
       </label>
       <button type="submit"><img src="assets/icons/logout.svg" alt="entrar">Entrar</img>
       </button>

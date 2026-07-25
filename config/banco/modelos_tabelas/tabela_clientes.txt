@@ -1,0 +1,7 @@
+Tabela para a tela de cadastro dos clientes da barbearia
+
+nome da tabela = clientes
+nome = VARCHAR(100) NOT NULL
+sobrenome = VARCHAR(100) NOT NULL
+telefone = VARCHAR(20) NOT NULL UNIQUE
+data_cadastro = DATETIME DEFAULT CURRENT_TIMESTAMP

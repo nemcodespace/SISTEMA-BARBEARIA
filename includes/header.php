@@ -48,7 +48,7 @@ include_once("config/marcador-pagina.php");
               </a>
             </li>
             <li>
-              <a href=""><img src="assets/icons/servicos.svg" alt="servicos">
+              <a href="servicos.php" class="<?= $paginaAtual == 'servicos.php' ? 'mark' : '' ?>"><img src="assets/icons/servicos.svg" alt="servicos">
                 Serviços
               </a>
             </li>

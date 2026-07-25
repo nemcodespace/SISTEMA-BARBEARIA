@@ -84,7 +84,7 @@ body {
   margin: 1rem 0;
   text-decoration: none;
   font-style: italic;
-  color: var(--cor-cinza);
+  color: var(--cor-cinza-escuro);
   font-weight: bold;
 }
 #menu.ativo {

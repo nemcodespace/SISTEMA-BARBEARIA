@@ -43,7 +43,7 @@ if($resultado->num_rows === 1){
     exit;
   }
 }
-header("Location: ../index.php");
+header("Location: ../index.php?erro=1");
 exit;
 
 
