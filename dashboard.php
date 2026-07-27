@@ -1,8 +1,8 @@
 <?php include_once("includes/header.php")?>
     <main class="main">
-      <section class="main-padding">
-        <!--NAV-TOPO-->
+      <!--NAV-TOPO-->
         <?php include_once("includes/nav-topo.php")?>
+      <section class="main-padding">
         <?php
           if($paginaAtual == 'dashboard.php'):?>
             <a href="dashboard.php" class="paginaIndica">dashboard</a>
