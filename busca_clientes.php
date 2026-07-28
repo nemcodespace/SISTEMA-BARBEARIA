@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include_once("includes/header.php");
 include_once("config/conexao.php");
 ?>
@@ -8,9 +9,16 @@ include_once("config/conexao.php");
   <section class="main-padding">
       <!--INICIO MARCADOR DE PAGINA-->
       <?php
-          if($paginaAtual == 'clientes.php'):?>
-            <a href="dashboard.php" class="paginaIndica">Dashboard/</a><span class="span">Clientes</span>
+          if($paginaAtual == 'busca_clientes.php'):?>
+            <a href="dashboard.php" class="paginaIndica">Dashboard/</a><span class="span">Buscar Clientes</span>
         <?php endif ?>
+        <!--VOLTAR-->
+        <div class="voltar_pagina">
+          <a href="clientes.php">
+          <img src="assets/icons/voltar.svg" alt="Voltar">
+          Voltar</a>
+        </div>
+        <!--VOLTAR-->
         <!--FIM MARCADOR DE PAGINA-->
   </section>
   <div class="bloco">
@@ -18,14 +26,8 @@ include_once("config/conexao.php");
   <form action="busca_clientes.php" method="GET">
     <article class="buscar-cliente">
       <label for="buscar clientes">
-        <input type="text" name="buscar_cliente" placeholder="Buscar por nome e sobrenome">
+        <input type="text" name="buscar_cliente" placeholder="Buscar cliente" value="<?php htmlspecialchars($_GET["buscar_cliente"] ?? "") ?>">
       </label>
-      <?php
-        if(isset($_GET["erro"]) == 2):?>
-          <div class="erro">
-            <p>Digite o nome do cliente.</p>
-          </div>
-      <?php endif ?>
       <div class="btn-busca">
         <button>
         <img src="assets/icons/search.svg" alt="buscar clientes">        
@@ -49,8 +51,17 @@ include_once("config/conexao.php");
       </tr>
     </thead>
       <?php
-        $sql = "SELECT id,nome,sobrenome,telefone,data_cadastro FROM clientes";
-        $res = $conn->query($sql);
+        $busca = trim($_GET["buscar_cliente"]?? "");
+        if($busca != ""){
+          $like = "%$busca%";
+          $sql = $conn->prepare("SELECT * FROM clientes WHERE nome LIKE ?");
+          $sql->bind_param("s", $like);
+        }else{
+          header("Location: clientes.php?erro=2");
+        }
+        if(isset($sql)){
+        $sql->execute();
+        $res = $sql->get_result();
         
         //VERIFICAR SE TEM DADOS
         if($res->num_rows > 0):?>
@@ -59,7 +70,7 @@ include_once("config/conexao.php");
           <tr>
             <td>
               <p><?= htmlspecialchars($clientes["nome"]) ?></p>
-              <p><?= htmlspecialchars($clientes["sobrenome"]) ?></p>
+              <p><?= htmlspecialchars($clientes["sobrenome"])?></p>
             </td>
             <td>
               <p><?= htmlspecialchars($clientes["telefone"]) ?></p>
@@ -78,8 +89,9 @@ include_once("config/conexao.php");
           </tr>
         <?php endwhile; ?>
         <?php else:?>
-          <tr><td colspan="4" style="color: #A9A9A9;">Sem clientes cadastrados.</td></tr>
-        <?php endif ?>
+          <tr><td colspan="4" style="color: #A9A9A9;">Nenhum cliente encontrado.</td></tr>
+        <?php endif; } ?>
+        
         </tbody>
       </table>
   </section>

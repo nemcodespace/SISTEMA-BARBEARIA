@@ -5,7 +5,7 @@
       <section class="main-padding">
         <?php
           if($paginaAtual == 'dashboard.php'):?>
-            <a href="dashboard.php" class="paginaIndica">dashboard</a>
+            <a href="dashboard.php" class="paginaIndica">Dashboard</a>
           <?php endif 
         ?>
         <!--INICIO CARDS-->

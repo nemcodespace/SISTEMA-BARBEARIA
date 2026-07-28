@@ -15,6 +15,7 @@
 --cor-azul-escuro: #0c7ef6;
 --cor-vermelho: #91082a;
 --cor-green: #1a8754;
+--cor-green-claro: #facfcf;
 --cor-fundo: #ebebec;
 --cor-fundo-header: #25313f;
 --cor-mark-hover-menu: #01496d;
@@ -31,6 +32,16 @@ body {
   background: var(--cor-fundo);
   min-height: 100svh;
   color: var(--cor-text);
+}
+/* ERROS */
+.erro {
+  background: var(--cor-green-claro);
+  margin: 0 0 1rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: var(--cor-vermelho);
+  font-weight: 400;
+  font-style: italic;
 }
 /*container*/
 .container {
@@ -86,6 +97,14 @@ body {
   font-style: italic;
   color: var(--cor-cinza-escuro);
   font-weight: bold;
+}
+.voltar_pagina a {
+  max-width: auto;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--cor-text);
+  font-weight: 500;
 }
 #menu.ativo {
   display: block;

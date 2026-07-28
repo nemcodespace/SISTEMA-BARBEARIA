@@ -28,27 +28,27 @@ include_once("config/marcador-pagina.php");
         <nav class="menu-left">
           <ul>
             <li>
-              <a href="dashboard.php" class="<?= $paginaAtual == 'dashboard.php' ? 'mark' : '' ?>"><img src="assets/icons/dash-speed.svg" alt="dashboard">
+              <a href="dashboard.php" class="<?= htmlspecialchars($paginaAtual) == 'dashboard.php' ? 'mark' : '' ?>"><img src="assets/icons/dash-speed.svg" alt="dashboard">
                 Dashboard
               </a>
             </li>
             <li>
-              <a href="novoAgendamento.php" class="<?= $paginaAtual == 'novoAgendamento.php' ? 'mark' : '' ?>"><img src="assets/icons/add.svg" alt="add">
+              <a href="novoAgendamento.php" class="<?= htmlspecialchars($paginaAtual) == 'novoAgendamento.php' ? 'mark' : '' ?>"><img src="assets/icons/add.svg" alt="add">
                 Novo agendamento
               </a>
             </li>
             <li>
-              <a href="agendados.php" class="<?= $paginaAtual == 'agendados.php' ? 'mark' : '' ?>"><img src="assets/icons/agendados.svg" alt="agendados">
+              <a href="agendados.php" class="<?= htmlspecialchars($paginaAtual) == 'agendados.php' ? 'mark' : '' ?>"><img src="assets/icons/agendados.svg" alt="agendados">
                 agendamentos
               </a>
             </li>
             <li>
-              <a href="clientes.php" class="<?= $paginaAtual == 'clientes.php' ? 'mark' : '' ?>"><img src="assets/icons/clientes.svg" alt="clientes">
+              <a href="clientes.php" class="<?= htmlspecialchars($paginaAtual) == 'clientes.php' ? 'mark' : '' ?>"><img src="assets/icons/clientes.svg" alt="clientes">
                 Clientes
               </a>
             </li>
             <li>
-              <a href="servicos.php" class="<?= $paginaAtual == 'servicos.php' ? 'mark' : '' ?>"><img src="assets/icons/servicos.svg" alt="servicos">
+              <a href="servicos.php" class="<?= htmlspecialchars($paginaAtual) == 'servicos.php' ? 'mark' : '' ?>"><img src="assets/icons/servicos.svg" alt="servicos">
                 Serviços
               </a>
             </li>
