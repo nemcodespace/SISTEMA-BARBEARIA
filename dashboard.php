@@ -8,28 +8,52 @@
             <a href="dashboard.php" class="paginaIndica">Dashboard</a>
           <?php endif 
         ?>
+        <?php 
+          if(isset($_GET['sucesso']) && $_GET['sucesso'] == 3): ?>
+            <div class="sucesso">Cliente removido com sucesso.</div>
+        <?php endif; ?>
+
+        <?php 
+          if(isset($_GET['erro']) && $_GET['erro'] == 1): ?>
+            <div class="erro">Erro ao apagar cliente.</div>
+        <?php endif; ?>
         <!--INICIO CARDS-->
         <article class="cards">
+          <!--CLIENTES-->
           <div class="card-azul">
-            <h3>4</h3>
+            <?php
+              //TOTAL CLIENTES
+              $sql = "SELECT * FROM clientes";
+              $sql = $conn->query($sql);
+              $total = $sql->num_rows;
+              if($total > 0):?>
+                <h3><?= htmlspecialchars($total) ?></h3>
+              <?php else: ?>
+                <h3>0</h3>
+              <?php endif ?>
             <h4>Clientes</h4>
           </div>
+          <!--USUARIOS-->
           <div class="card-verde">
             <h3>2</h3>
             <h4>Usúarios</h4>
           </div>
+          <!--SERVIÇOS-->
           <div class="card-azul-claro">
             <h3>6</h3>
             <h4>Serviços</h4>
           </div>
+          <!--AGENDAMENTOS DIA-->
           <div class="card-amarelo">
             <h3>8</h3>
             <h4>Agendamentos dia</h4>
           </div>
+          <!--PROXIMOS AGENDAMENTOS-->
           <div class="card-vermelho">
             <h3>10</h3>
             <h4>Próximos agen...</h4>
           </div>
+          <!--RECEITA DO MES-->
           <div class="card-cinza">
             <h3>R$: 100,00</h3>
             <h4>Receita do mês</h4>

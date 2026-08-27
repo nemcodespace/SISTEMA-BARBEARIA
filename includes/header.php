@@ -33,7 +33,7 @@ include_once("config/marcador-pagina.php");
               </a>
             </li>
             <li>
-              <a href="novoAgendamento.php" class="<?= htmlspecialchars($paginaAtual) == 'novoAgendamento.php' ? 'mark' : '' ?>"><img src="assets/icons/add.svg" alt="add">
+              <a href="novo-agendamento.php" class="<?= htmlspecialchars($paginaAtual) == 'novo-agendamento.php' ? 'mark' : '' ?>"><img src="assets/icons/add.svg" alt="add">
                 Novo agendamento
               </a>
             </li>

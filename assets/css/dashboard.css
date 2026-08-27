@@ -15,11 +15,13 @@
 --cor-azul-escuro: #0c7ef6;
 --cor-vermelho: #91082a;
 --cor-green: #1a8754;
---cor-green-claro: #facfcf;
+--cor-sucesso: #e6ffe6;
+--cor-ocre-claro: rgba(255,218,185,0.5);
 --cor-fundo: #ebebec;
 --cor-fundo-header: #25313f;
 --cor-mark-hover-menu: #01496d;
 --cor-vermelho-claro: #db3848;
+--cor-hover: #b7dbfd
 }
 
 html {
@@ -33,9 +35,19 @@ body {
   min-height: 100svh;
   color: var(--cor-text);
 }
-/* ERROS */
+/* ERROS/SUCESSO */
+.sucesso {
+  background: var(--cor-sucesso);
+  margin: 1rem 0 1rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: var(--cor-green);
+  font-weight: 400;
+  font-style: italic;
+  border: 0.1rem solid #aafeaa;
+}
 .erro {
-  background: var(--cor-green-claro);
+  background: var(--cor-ocre-claro);
   margin: 0 0 1rem 0;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -142,6 +154,9 @@ body {
 
 
 /*main*/
+main {
+  overflow-y: auto;
+}
 .main-padding {
   width: 100%;
   padding: 1rem;
@@ -157,8 +172,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  position: sticky;
-  top: 0;
   margin: 0;
   background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7));
   backdrop-filter: blur(10px);
@@ -311,6 +324,7 @@ body {
   cursor: pointer;
   text-transform: uppercase;
   font-weight: 400;
+  text-wrap: nowrap;
 }
 .card2-hero2 a:hover {
   background: var(--cor-azul-escuro);
@@ -374,7 +388,7 @@ body {
 }
 .bloco {
   width: 100%;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 .scroll {
   width: 100%;
@@ -420,13 +434,17 @@ body {
   gap: 0.5rem;
   justify-content: right;
 }
-.edit-cliente a {
+.edit-cliente button {
   width: 40px;
   height: 40px;
   padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
 }
 .edit-cliente img {
   width: 34px;
@@ -441,7 +459,53 @@ body {
 .delete {
   background: var(--cor-vermelho);
 }
-
+.form-container {
+  box-shadow: 2px 2px 10px var(--cor-cinza-escuro);
+  padding: 1rem 0 4rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 3rem;
+}
+.form-container h3 {
+  margin: 2rem 0;
+}
+.form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: row wrap;
+  gap: 1rem;
+}
+.form label {
+  display: block;
+  overflow: auto;
+}
+.form input {
+  display: block;
+  margin: 0.5rem 0.2rem 2rem 0.2rem;
+  padding: 1rem;
+  max-width: 500px;
+  min-width: 275px;
+  background: transparent;
+  border: 0.1rem solid var(--cor-cinza-escuro);
+  outline: none;
+  border-radius: 0.5rem;
+  font-size: 1.7rem;
+}
+.form input:hover {
+  border: 0.4rem solid var(--cor-hover);
+}
+.form select {
+  display: block;
+  margin: 0.5rem 0.2rem 2rem 0.2rem;
+  padding: 1rem;
+  max-width: 500px;
+  min-width: 275px;
+  background: transparent;
+  border: 0.1rem solid var(--cor-cinza-escuro);
+  outline: none;
+  border-radius: 0.5rem;
+  font-size: 1.7rem;
+}
 /*footer*/
 .footer {
   width: 100%;
@@ -459,6 +523,15 @@ body {
 
 /* media queries */
 @media (max-width: 900px){
+  /* nav top */
+  .paginaIndica {
+    margin: 7rem 0 0 0;
+  }
+  .nav-top {
+    width: 100%;
+    position: fixed;
+    top: 0;
+  }
   /*header*/
   .header {
     display: none;

@@ -1,32 +1,33 @@
 <?php
+ob_start();
 include_once("includes/header.php");
 include_once("config/conexao.php");
 ?>
+
 <main class="main">
   <!--INCLUIR MENU TOPO-->
   <?php include_once("includes/nav-topo.php")?>
   <section class="main-padding">
       <!--INICIO MARCADOR DE PAGINA-->
       <?php
-          if($paginaAtual == 'clientes.php'):?>
-            <a href="dashboard.php" class="paginaIndica">Dashboard/</a><span class="span">Clientes</span>
+          if($paginaAtual == 'agendar.php'):?>
+            <a href="dashboard.php" class="paginaIndica">Dashboard/</a><span class="span"><?php echo pathinfo($_SERVER["PHP_SELF"], PATHINFO_FILENAME) ?></span>
         <?php endif ?>
+        <!--VOLTAR-->
+        <div class="voltar_pagina">
+          <a href="clientes.php">
+          <img src="assets/icons/voltar.svg" alt="Voltar">
+          Voltar</a>
+        </div>
+        <!--VOLTAR-->
         <!--FIM MARCADOR DE PAGINA-->
-        <!--INICIO MENSAGEM DE ERRO-->
-        <?php
-        if(isset($_GET["erro"]) == 2):?>
-          <div class="erro">
-            <p>Digite o nome do cliente.</p>
-          </div>
-        <?php endif ?>
-        <!--FIM MENSAGEM DE ERRO-->
   </section>
   <div class="bloco">
   <!--INICIO DA BUSCA DE CLIENTES-->
-  <form action="busca_clientes.php" method="GET">
+  <form action="" method="GET">
     <article class="buscar-cliente">
       <label for="buscar clientes">
-        <input type="text" name="buscar_cliente" placeholder="Buscar por nome e sobrenome">
+        <input type="text" name="buscar_cliente" placeholder="Buscar cliente" value="<?php htmlspecialchars($_GET["buscar_cliente"] ?? "") ?>">
       </label>
       <div class="btn-busca">
         <button>
@@ -39,6 +40,9 @@ include_once("config/conexao.php");
     </article>
   </form>
   <!--FIM DA BUSCA DE CLIENTES-->
+  <div class="sucesso">
+    <p>Para agendar vai em ações e clica no ícone caledario +</p>
+  </div>
   <!--INICIO DE CLIENTES CADASTRADOS-->
   <section class="scroll">
     <table class="table">
@@ -51,8 +55,17 @@ include_once("config/conexao.php");
       </tr>
     </thead>
       <?php
-        $sql = "SELECT id,nome,sobrenome,telefone,data_cadastro FROM clientes ORDER BY id DESC";
-        $res = $conn->query($sql);
+        $busca = trim($_GET["buscar_cliente"]?? "");
+        if($busca != ""){
+          $like = "%$busca%";
+          $sql = $conn->prepare("SELECT * FROM clientes WHERE nome LIKE ?");
+          $sql->bind_param("s", $like);
+        }else{
+          header("Location: clientes.php?erro=2");
+        }
+        if(isset($sql)){
+        $sql->execute();
+        $res = $sql->get_result();
         
         //VERIFICAR SE TEM DADOS
         if($res->num_rows > 0):?>
@@ -61,7 +74,7 @@ include_once("config/conexao.php");
           <tr>
             <td>
               <p><?= htmlspecialchars($clientes["nome"]) ?></p>
-              <p><?= htmlspecialchars($clientes["sobrenome"]) ?></p>
+              <p><?= htmlspecialchars($clientes["sobrenome"])?></p>
             </td>
             <td>
               <p><?= htmlspecialchars($clientes["telefone"]) ?></p>
@@ -70,24 +83,21 @@ include_once("config/conexao.php");
               <p><?= htmlspecialchars(date("d/m/Y", strtotime($clientes["data_cadastro"]))) ?></p>
             </td>
             <td class="edit-cliente">
-              <form action="editar-cliente.php" method="POST" class="form-edit-cliente">
+              <!--AGENDAR CLIENTE-->
+              <form action="agendar-cliente.php" method="POST" class="form-edit-cliente">
                 <input type="hidden" name="editar-cliente" value="<?php echo htmlspecialchars($clientes["id"]) ?>">
                 <button type="submit">
-                  <img src="assets/icons/edit.svg" alt="editar cliente" class="edit">
+                  <img src="assets/icons/add.svg" alt="editar cliente" class="edit">
                 </button>
               </form>
-              <form action="apagar-cliente.php" method="POST" onsubmit="return confirm('Deseja mesmo APAGAR esse cliente')">
-                <input type="hidden" value="<?php echo htmlspecialchars($clientes["id"]) ?>" name="id">
-                <button type="submit">
-                <img src="assets/icons/delete.svg" alt="deletar cliente"class="delete">
-                </button>
-              </form>
+              <!--FIM AGENDAR CLIENTE-->
             </td>
           </tr>
         <?php endwhile; ?>
         <?php else:?>
-          <tr><td colspan="4" style="color: #A9A9A9;">Sem clientes cadastrados.</td></tr>
-        <?php endif ?>
+          <tr><td colspan="4" style="color: #A9A9A9;">Nenhum cliente encontrado.</td></tr>
+        <?php endif; } ?>
+        
         </tbody>
       </table>
   </section>
@@ -95,5 +105,3 @@ include_once("config/conexao.php");
   </div>
   <?php include_once("includes/footer.php") ?>
 </main>
-
-

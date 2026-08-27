@@ -3,6 +3,7 @@ ob_start();
 include_once("includes/header.php");
 include_once("config/conexao.php");
 ?>
+
 <main class="main">
   <!--INCLUIR MENU TOPO-->
   <?php include_once("includes/nav-topo.php")?>
@@ -10,7 +11,7 @@ include_once("config/conexao.php");
       <!--INICIO MARCADOR DE PAGINA-->
       <?php
           if($paginaAtual == 'busca_clientes.php'):?>
-            <a href="dashboard.php" class="paginaIndica">Dashboard/</a><span class="span">Buscar Clientes</span>
+            <a href="dashboard.php" class="paginaIndica">Dashboard/</a><span class="span"><?php echo pathinfo($_SERVER["PHP_SELF"], PATHINFO_FILENAME)?></span>
         <?php endif ?>
         <!--VOLTAR-->
         <div class="voltar_pagina">
@@ -79,12 +80,19 @@ include_once("config/conexao.php");
               <p><?= htmlspecialchars(date("d/m/Y", strtotime($clientes["data_cadastro"]))) ?></p>
             </td>
             <td class="edit-cliente">
-              <a href="">
-                <img src="assets/icons/edit.svg" alt="editar cliente" class="edit">
-              </a>
+              <!--EDITAR CLIENTE-->
+              <form action="editar-cliente.php" method="POST" class="form-edit-cliente">
+                <input type="hidden" name="editar-cliente" value="<?php echo htmlspecialchars($clientes["id"]) ?>">
+                <button type="submit">
+                  <img src="assets/icons/edit.svg" alt="editar cliente" class="edit">
+                </button>
+              </form>
+              <!--EDITAR CLIENTE-->
+              <!--APAGAR CLIENTE-->
               <a href="">
                 <img src="assets/icons/delete.svg" alt="deletar cliente"class="delete">
               </a>
+              <!--APAGAR CLIENTE-->
             </td>
           </tr>
         <?php endwhile; ?>
