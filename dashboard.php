@@ -34,10 +34,24 @@
             <h4>Clientes</h4>
           </div>
           <!--USUARIOS-->
-          <div class="card-verde">
-            <h3>2</h3>
-            <h4>Usúarios</h4>
-          </div>
+          <?php
+            //contar USUARIOS
+            $sql = "SELECT * FROM admin";
+            $sql = $conn->query($sql);
+            $usuario = $sql->num_rows;
+            //verificar se nao vier dados
+            if($usuario > 0):?>
+              <div class="card-verde">
+                <h3><?= $usuario ?></h3>
+                <h4>Usúarios</h4>
+              </div>
+            <?php else :?>
+              <div class="card-verde">
+                <h3>0</h3>
+                <h4>Usúarios</h4>
+              </div>
+            <?php endif ?>
+          
           <!--SERVIÇOS-->
           <div class="card-azul-claro">
             <h3>6</h3>
