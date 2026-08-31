@@ -33,7 +33,7 @@ include_once("config/conexao.php");
         <button>
         <img src="assets/icons/search.svg" alt="buscar clientes">        
         Buscar</button>
-        <a href="">
+        <a href="cadastrar-cliente.php">
         <img src="assets/icons/add.svg" alt="cadastrar novo cliente">
         Novo cliente</a>
       </div>
@@ -89,9 +89,12 @@ include_once("config/conexao.php");
               </form>
               <!--EDITAR CLIENTE-->
               <!--APAGAR CLIENTE-->
-              <a href="">
+              <form action="apagar-cliente.php" method="POST" onsubmit="return confirm('Deseja mesmo APAGAR esse cliente')">
+                <input type="hidden" value="<?php echo htmlspecialchars($clientes["id"]) ?>" name="id">
+                <button type="submit">
                 <img src="assets/icons/delete.svg" alt="deletar cliente"class="delete">
-              </a>
+                </button>
+              </form>
               <!--APAGAR CLIENTE-->
             </td>
           </tr>

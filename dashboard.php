@@ -14,6 +14,16 @@
         <?php endif; ?>
 
         <?php 
+          if(isset($_GET['sucesso']) && $_GET['sucesso'] == 4): ?>
+            <div class="sucesso">Cliente cadastrado com sucesso.</div>
+        <?php endif; ?>
+
+        <?php 
+        if(isset($_GET['sucesso']) && $_GET['sucesso'] == 5): ?>
+            <div class="sucesso">Erro ao cadastrar cliente.</div>
+        <?php endif; ?>
+
+        <?php 
           if(isset($_GET['erro']) && $_GET['erro'] == 1): ?>
             <div class="erro">Erro ao apagar cliente.</div>
         <?php endif; ?>
@@ -42,7 +52,7 @@
             //verificar se nao vier dados
             if($usuario > 0):?>
               <div class="card-verde">
-                <h3><?= $usuario ?></h3>
+                <h3><?= htmlspecialchars($usuario) ?></h3>
                 <h4>Usúarios</h4>
               </div>
             <?php else :?>

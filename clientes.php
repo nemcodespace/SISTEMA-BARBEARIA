@@ -9,9 +9,14 @@ include_once("config/conexao.php");
       <!--INICIO MARCADOR DE PAGINA-->
       <?php
           if($paginaAtual == 'clientes.php'):?>
-            <a href="dashboard.php" class="paginaIndica">Dashboard/</a><span class="span">Clientes</span>
+            <a href="dashboard.php" class="paginaIndica">Dashboard/</a><span class="span"><?= htmlspecialchars(pathinfo($_SERVER["PHP_SELF"], PATHINFO_FILENAME)) ?></span>
         <?php endif ?>
         <!--FIM MARCADOR DE PAGINA-->
+        <div class="voltar_pagina">
+          <a href="dashboard.php">
+          <img src="assets/icons/voltar.svg" alt="Voltar">
+          Voltar</a>
+        </div>
         <!--INICIO MENSAGEM DE ERRO-->
         <?php
         if(isset($_GET["erro"]) == 2):?>
@@ -32,7 +37,7 @@ include_once("config/conexao.php");
         <button>
         <img src="assets/icons/search.svg" alt="buscar clientes">        
         Buscar</button>
-        <a href="">
+        <a href="cadastrar-cliente.php">
         <img src="assets/icons/add.svg" alt="cadastrar novo cliente">
         Novo cliente</a>
       </div>

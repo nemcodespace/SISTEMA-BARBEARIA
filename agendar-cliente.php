@@ -45,26 +45,25 @@ include_once("config/conexao.php");
       $res = $row->fetch_assoc(); 
     ?>
       <form action="salvar-cliente.php" method="POST" class="form-container">
-        <h3>Editar cliente</h3>
+        <h3>Agendar cliente</h3>
         <section class="form">
           <input type="hidden" name="id" value="<?php echo $id_cliente; ?>">
         <label>
           Nome
-          <input type="text" name="novo_nome" value="<?php echo htmlspecialchars($res["nome"]) ?>">
+          <input type="text" name="nome" value="<?php echo htmlspecialchars($res["nome"]) ?>" readonly>
         </label>
         <label>
           Sobrenome
-          <input type="text" name="novo_sobrenome" value="<?php echo htmlspecialchars($res["sobrenome"]) ?>
-            if(){
-        ">
+          <input type="text" name="sobrenome" value="<?php echo htmlspecialchars($res["sobrenome"]) ?>
+        " readonly>
         </label>
         <label>
           Telefone
-          <input type="text" name="novo_telefone" value="<?php echo htmlspecialchars($res["telefone"]) ?>">
+          <input type="text" name="telefone" value="<?php echo htmlspecialchars($res["telefone"]) ?>" readonly>
         </label>
         </section>
         <div class="btn-busca">
-          <button type="submit">Salvar</button>
+          <button type="submit">Agendar Horário</button>
         </div>
       </form>
     <?php 

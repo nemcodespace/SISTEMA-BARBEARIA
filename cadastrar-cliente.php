@@ -6,7 +6,7 @@ include_once("config/conexao.php");
 <main class="main">
   <?php include_once("includes/nav-topo.php")?>
   <section class="main-padding">
-      <?php if($paginaAtual == 'editar-cliente.php'):?>
+      <?php if($paginaAtual == 'cadastrar-cliente.php'):?>
             <a href="dashboard.php" class="paginaIndica">Dashboard/</a><span class="span"><?= pathinfo($_SERVER["PHP_SELF"], PATHINFO_FILENAME) ?></span>
         <?php endif ?>
         <div class="voltar_pagina">
@@ -26,49 +26,27 @@ include_once("config/conexao.php");
             </div>
           <?php endif  ?>
   </section>
-  <div class="bloco">
-    <?php
-    //INICIALIZA A VARIAVEL EM NULL
-    $row = null;
-    
-    if(isset($_POST["editar-cliente"])){
-      $id_cliente = $_POST["editar-cliente"];
-      
-      $sql = $conn->prepare("SELECT nome,sobrenome,telefone FROM clientes WHERE id = ?");
-      $sql->bind_param("i", $id_cliente);
-      $sql->execute();
-      $row = $sql->get_result();
-    }
-    //VERIFICA SE O $ROW VEIO RESULTADO
-    if($row && $row->num_rows > 0): 
-      $res = $row->fetch_assoc(); 
-    ?>
-      <form action="salvar-cliente.php" method="POST" class="form-container">
-        <h3>Editar cliente</h3>
+    <div class="bloco">
+      <form action="cadastrar.php" method="POST" class="form-container">
+        <h3>Cadastrar cliente</h3>
         <section class="form">
-          <input type="hidden" name="id" value="<?php echo $id_cliente; ?>">
         <label>
           Nome
-          <input type="text" name="novo_nome" value="<?php echo htmlspecialchars($res["nome"]) ?>">
+          <input type="text" name="nome" id="nome" required>
         </label>
         <label>
           Sobrenome
-          <input type="text" name="novo_sobrenome" value="<?php echo htmlspecialchars($res["sobrenome"]) ?>">
+          <input type="text" name="sobrenome" id="sobrenome" required>
         </label>
         <label>
           Telefone
-          <input type="text" name="novo_telefone" value="<?php echo htmlspecialchars($res["telefone"]) ?>">
+          <input type="text" name="telefone" id="telefone" required>
         </label>
         </section>
         <div class="btn-busca">
-          <button type="submit">Salvar</button>
+          <button type="submit">Cadastrar</button>
         </div>
       </form>
-    <?php 
-    else: 
-      echo "<p>Selecione um cliente para editar.</p>";
-    endif 
-    ?>
   </div>
   <?php include_once("includes/footer.php") ?>
 </main>
